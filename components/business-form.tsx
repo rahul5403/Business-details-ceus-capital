@@ -151,18 +151,18 @@ export function BusinessForm() {
   async function onSubmit(values: BusinessFormValues) {
     try {
       setIsSubmitting(true);
-      // const response = await fetch("/api/business", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify(values),
-      // });
+      const response = await fetch("http://localhost:3000/api/business", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
 
-      // if (!response.ok) {
-      //   const errorData = await response.json();
-      //   throw new Error(errorData.error || "Failed to submit business details");
-      // }
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Failed to submit business details");
+      }
 
       console.log("Submitted business details:", values);
       toast.success("Business details submitted successfully!");

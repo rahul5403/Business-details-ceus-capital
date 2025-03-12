@@ -4,8 +4,6 @@ export async function POST(request: Request) {
   try {
     const data = await request.json();
     
-    // Here you would typically send the data to your database
-    // For now, we'll just return a success response
     console.log("Received business data:", data);
 
     return NextResponse.json({ success: true });
